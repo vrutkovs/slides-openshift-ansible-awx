@@ -68,11 +68,11 @@ and updating configs if necessary
 Clone the repository:
 
 ```terminal
-git clone <span style="color:lightgreen;">https://github.com/openshift/openshift-ansible</span>
+git clone <span style="color:green;">https://github.com/openshift/openshift-ansible</span>
 cd openshift-ansible
-git checkout <span style="color:lightgreen;">release-3.7</span>
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:pink;">prerequisites.yml</span>
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:pink;">deploy_cluster.yml</span>
+git checkout <span style="color:green;">release-3.7</span>
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:darkblue;">prerequisites.yml</span>
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:darkblue;">deploy_cluster.yml</span>
 ```
 
 Now Openshift is deployed to the localhost
@@ -85,19 +85,19 @@ masters
 nodes
 etcd
 
-<span style="color:lightgreen;">[OSEv3:vars]</span>
+<span style="color:green;">[OSEv3:vars]</span>
 ansible_python_interpreter=/usr/bin/python3
 openshift_deployment_type=origin
 openshift_release=3.7
 openshift_disable_check=disk_availability,memory_availability
 
-<span style="color:pink;">[masters]</span>
+<span style="color:darkblue;">[masters]</span>
 master.example.com
 
-<span style="color:pink;">[etcd]</span>
+<span style="color:darkblue;">[etcd]</span>
 etcd.example.com
 
-<span style="color:pink;">[nodes]</span>
+<span style="color:darkblue;">[nodes]</span>
 master.example.com openshift_schedulable=False
 node-infra-1.example.com openshift_node_labels="{'region': 'infra'}"
 node-infra-2.example.com openshift_node_labels="{'region': 'infra'}"

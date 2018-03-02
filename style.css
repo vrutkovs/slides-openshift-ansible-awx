@@ -32,12 +32,31 @@ body {
 p {
   font-size: 18pt;
 }
-pre {
+/* pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   background: #272822 !important;
   color: #ddd;
+} */
+
+pre {
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px 0 10px 60px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  background-color: #e6e6e6;
+  left: -60px;
+  position: relative;
+  box-sizing: border-box;
+  white-space: pre-wrap;
 }
+
+.hljs {
+  background: inherit !important;
+  color: inherit !important;
+}
+
 .inverse {
   background: #272822;
   color: #777872;

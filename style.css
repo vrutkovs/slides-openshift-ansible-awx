@@ -4,7 +4,8 @@ body {
 }
 
 .remark-slide-number {
-  bottom: 35px;
+  bottom: 30px;
+  left: 30px;
   opacity: 0.25;
   position: absolute;
   right: unset;
@@ -12,6 +13,7 @@ body {
 
 .remark-slide-content {
   background-color: #f1f1f1;
+  background-repeat: round;
   font-size: 22px;
 }
 

@@ -78,26 +78,27 @@ sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:
 Now Openshift is deployed to the localhost
 
 ---
-# Sample config
-```ini
+#### Sample config
+```terminal
 [OSEv3:children]
 masters
 nodes
 etcd
 
-[OSEv3:vars]
+<span style="color:lightgreen;">[OSEv3:vars]</span>
 ansible_python_interpreter=/usr/bin/python3
 openshift_deployment_type=origin
 openshift_release=3.7
 openshift_disable_check=disk_availability,memory_availability
 
-[masters]
+<span style="color:pink;">[masters]</span>
 master.example.com
 
-[etcd]
+<span style="color:pink;">[etcd]</span>
 etcd.example.com
 
-[nodes]
+<span style="color:pink;">[nodes]</span>
+master.example.com openshift_schedulable=False
 node-infra-1.example.com openshift_node_labels="{'region': 'infra'}"
 node-infra-2.example.com openshift_node_labels="{'region': 'infra'}"
 node-compute-1.example.com openshift_node_labels="{'role': 'compute'}"

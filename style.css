@@ -24,7 +24,7 @@ body {
 
 .remark-code, .remark-inline-code {
   font-family: 'Inconsolata';
-  /* font-size: 10pt !important; */
+  font-size: 12pt !important;
 }
 .remark-slide-scaler {
   overflow-y: auto;

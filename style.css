@@ -44,11 +44,12 @@ p {
 pre {
   font-size: 20px;
   line-height: 20px;
-  padding: 10px 0 10px 60px;
+  padding: 10px 0 10px 100px;
   letter-spacing: -1px;
   margin-bottom: 20px;
   background-color: #e6e6e6;
-  left: -60px;
+  left: -100px;
+  width: 1000px;
   position: relative;
   box-sizing: border-box;
   white-space: pre-wrap;

@@ -1,0 +1,135 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>Openshift Ansible</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+  </head>
+  <body>
+<textarea id="source">
+name: section
+class: center, middle, inverse
+count: false
+---
+name: background
+layout: true
+background-image: url(back.png)
+---
+template: section
+## Openshift Ansible
+
+.footnote[Vadim Rutkovsky <vrutkovs@redhat.com>]
+
+.footnote[https://github.com/vrutkovs/slides-openshift-ansible-awx]
+---
+# Openshift Ansible
+
+- Ansible repo to install, manage and configure your Openshift installation
+--
+
+- Takes care of setting up clusters on supported environments:
+  * Bare metal
+  * AWS
+  * GCP
+  * Azure (coming soon!)
+
+---
+# Supported configurations
+
+* Origin / OCP
+* Fedora / CentOS / RHEL hosts
+* Fedora Atomic / CentOS Atomic / RHEL Atomic
+* etcd/master/node/container-runtime in system containers
+* D*cker / CRI-O
+* all-in-one / HA setup
+
+---
+# Day 2 tasks
+* Verify certificates
+* Scale up etcd/master/nodes
+* Playbooks to setup / reconfigure services
+* Ad-hoc actions:
+  * Docker storage cleanup
+  * Convert docker loopback storage to LVM
+  * Create PVs
+
+---
+# Upgrades
+
+Openshift-ansible can update your v3.x cluster to v3.x+1,
+providing necessary migrations (e.g. etcd v2 -> v3)
+and updating configs if necessary
+
+---
+# Getting started
+
+Clone the repository:
+```
+git clone https://github.com/openshift/openshift-ansible
+cd openshift-ansible
+git checkout release-3.7
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml
+```
+
+Now Openshift is deployed to the localhost
+
+---
+# Sample config
+```
+[OSEv3:children]
+masters
+nodes
+etcd
+
+[OSEv3:vars]
+ansible_python_interpreter=/usr/bin/python3
+openshift_deployment_type=origin
+openshift_release=3.7
+openshift_disable_check=disk_availability,memory_availability
+
+[masters]
+master.example.com
+
+[etcd]
+etcd.example.com
+
+[nodes]
+node-infra-1.example.com openshift_node_labels="{'region': 'infra'}"
+node-infra-2.example.com openshift_node_labels="{'region': 'infra'}"
+node-compute-1.example.com openshift_node_labels="{'role': 'compute'}"
+node-compute-2.example.com openshift_node_labels="{'role': 'compute'}"
+node-compute-3.example.com openshift_node_labels="{'role': 'compute'}"
+```
+
+---
+template: section
+# Demo
+## Deploying Openshift using AWX
+
+---
+template: section
+## That's all folks
+
+</textarea>
+    <!-- <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script> -->
+    <!-- Uncomment this if there is no internet -->
+    <script src="remark-latest.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      var slideshow = remark.create(      {
+        // Navigation options
+        navigation: {
+          // Enable or disable navigating using scroll
+          // Default: true
+          // Alternatives: false
+          scroll: false,
+        },
+        highlightStyle: 'monokai',
+        highlightSpans: true
+      }
+      );
+    </script>
+  </body>
+</html>

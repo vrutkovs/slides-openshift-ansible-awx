@@ -4,6 +4,8 @@
     <title>Openshift Ansible</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
   </head>
   <body>
 <textarea id="source">
@@ -64,12 +66,13 @@ and updating configs if necessary
 # Getting started
 
 Clone the repository:
-```sh
-git clone https://github.com/openshift/openshift-ansible
+
+```terminal
+git clone <span style="color:lightgreen;">https://github.com/openshift/openshift-ansible</span>
 cd openshift-ansible
-git checkout release-3.7
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml
+git checkout <span style="color:lightgreen;">release-3.7</span>
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:pink;">prerequisites.yml</span>
+sudo ansible-playbook -i inventory/hosts.localhost playbooks/<span style="color:pink;">deploy_cluster.yml</span>
 ```
 
 Now Openshift is deployed to the localhost
@@ -112,24 +115,19 @@ template: section
 ## That's all folks
 
 </textarea>
-    <!-- <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
-    </script> -->
-    <!-- Uncomment this if there is no internet -->
     <script src="remark-latest.min.js" type="text/javascript"></script>
-
     <script type="text/javascript">
-      var slideshow = remark.create(      {
-        // Navigation options
-        navigation: {
-          // Enable or disable navigating using scroll
-          // Default: true
-          // Alternatives: false
-          scroll: false,
-        },
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="terminal.language.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
         highlightStyle: 'monokai',
-        highlightSpans: true
-      }
-      );
+      });
+      // extract the embedded styling from ansi spans
+      $('code.terminal span.hljs-ansi').replaceWith(function(i, x) {
+        return x.replace(/&lt;(\/?(\w+).*?)&gt;/g, '<$1>')
+      });
     </script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+
 body {
   font-family: 'Droid Serif';
 }
@@ -35,6 +36,12 @@ h1, h2, h3, h4 {
 .remark-slide-scaler {
   overflow-y: auto;
 }
+
+.hljs {
+  background: inherit !important;
+  color: inherit !important;
+}
+
 p {
   font-size: 18pt;
 }
@@ -53,9 +60,9 @@ pre {
   white-space: pre-wrap;
 }
 
-.hljs {
-  background: inherit !important;
-  color: inherit !important;
+li {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inverse {
@@ -68,16 +75,11 @@ pre {
   line-height: 0.8em;
 }
 
-.inverse .remark-slide-number {
-  display: none;
-}
-
 .inverse a, .inverse a > code {
   color: rgb(249, 38, 114);
   text-decoration: none;
 }
 
-li {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.inverse .remark-slide-number {
+  display: none;
 }
